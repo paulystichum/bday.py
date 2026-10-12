@@ -17,7 +17,6 @@ class WheelPicker(tk.Frame):
 
         self.labels = []
 
-        # Main canvas
         self.canvas = tk.Canvas(
             self,
             width=width,
@@ -28,7 +27,6 @@ class WheelPicker(tk.Frame):
 
         self.canvas.pack()
 
-        # Mouse wheel
         self.canvas.bind(
     "<MouseWheel>",
     lambda event: self.change(
@@ -36,7 +34,6 @@ class WheelPicker(tk.Frame):
     )
         )
 
-        # Linux mouse wheel support
         self.canvas.bind(
             "<Button-4>",
             lambda event: self.change(-1)
@@ -108,7 +105,7 @@ class WheelPicker(tk.Frame):
                 anchor="center"
             )
 
-        # Selection lines
+
         self.canvas.create_line(
             10,
             center_y - 21,
@@ -156,7 +153,6 @@ class BirthdayPicker(tk.Tk):
             False
         )
 
-        # TITLE
 
         title = tk.Label(
             self,
@@ -182,7 +178,6 @@ class BirthdayPicker(tk.Tk):
             pady=(0, 35)
         )
 
-        # DATE VALUES
 
         months = [
             "January",
@@ -217,7 +212,6 @@ class BirthdayPicker(tk.Tk):
         default_day = date.today().day
         default_year = current_year - 18
 
-        # PICKER CONTAINER
 
         picker_frame = tk.Frame(
             self,
@@ -226,7 +220,6 @@ class BirthdayPicker(tk.Tk):
 
         picker_frame.pack()
 
-        # MONTH
 
         month_frame = tk.Frame(
             picker_frame,
@@ -264,7 +257,6 @@ class BirthdayPicker(tk.Tk):
 
         self.month_picker.draw()
 
-        # DAY
 
         day_frame = tk.Frame(
             picker_frame,
@@ -302,7 +294,6 @@ class BirthdayPicker(tk.Tk):
 
         self.day_picker.draw()
 
-        # YEAR
 
         year_frame = tk.Frame(
             picker_frame,
@@ -340,7 +331,6 @@ class BirthdayPicker(tk.Tk):
 
         self.year_picker.draw()
 
-        # SELECTED DATE
 
         self.selected_label = tk.Label(
             self,
@@ -354,7 +344,6 @@ class BirthdayPicker(tk.Tk):
             pady=(25, 20)
         )
 
-        # CONTINUE BUTTON
 
         continue_button = tk.Button(
             self,
@@ -375,9 +364,6 @@ class BirthdayPicker(tk.Tk):
 
         self.update_selected_date()
 
-    ----
-    # GET SELECTED DATE
-    ----
 
     def get_selected_date(self):
 
@@ -394,10 +380,6 @@ class BirthdayPicker(tk.Tk):
         )
 
         return year, month, day
-
-    ----
-    # UPDATE DATE LABEL
-    ----
 
     def update_selected_date(self):
 
@@ -431,10 +413,6 @@ class BirthdayPicker(tk.Tk):
             100,
             self.update_selected_date
         )
-
-    ----
-    # CONFIRM DATE
-    ----
 
     def confirm_date(self):
 
